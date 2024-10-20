@@ -18,12 +18,6 @@ Prerequisites
 A web browser (Chrome, Firefox, etc.)
 An internet connection to access the API.
 Installation
-Clone the repository:
-
-bash
-Copy code
-git clone https://github.com/yourusername/recipe-app.git
-Navigate to the project directory:
 
 bash
 Copy code
