@@ -145,5 +145,10 @@ function closeModalFn() {
     document.getElementById('recipeModal').style.display = 'none';
 }
 
+// Dark mode toggle functionality
+document.getElementById('darkModeToggle').addEventListener('click', () => {
+    document.body.classList.toggle('dark-mode');
+});
+
 // Initialize with vegetarian recipes
 defaultFn();
