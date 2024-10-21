@@ -12,20 +12,20 @@ header {
 
 h1 {
     color: #333;
-    font-size: 36px; /* Increased font size */
-    font-weight: bold; /* Bold text */
-    text-transform: uppercase; /* Uppercase text */
-    text-decoration: underline; /* Underline text */
-    font-family: 'Georgia', serif; /* More decorative font */
-    background: linear-gradient(90deg, #ff6b6b, #f06595); /* Gradient effect */
-    -webkit-background-clip: text; /* Clip the background to the text */
-    -webkit-text-fill-color: transparent; /* Make text color transparent */
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Shadow effect */
+    font-size: 36px;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-decoration: underline;
+    font-family: 'Georgia', serif;
+    background: linear-gradient(90deg, #ff6b6b, #f06595);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 .container {
-    max-width: 800px;
-    margin: auto;
+    max-width: 1200px; /* Adjusted width to fit more content */
+    margin: 0 auto; /* Center the container */
 }
 
 #recipeType {
@@ -56,95 +56,46 @@ button:hover {
     background-color: #218838;
 }
 
-/* Styles for vegetarian and non-vegetarian buttons */
-button.vegetarian {
-    background-color: #28a745; /* Green color */
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-right: 5px;
+/* Dark mode styling */
+.dark-mode {
+    background-color: #121212;
+    color: #ffffff;
 }
 
-button.non-vegetarian {
-    background-color: #dc3545; /* Red color */
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    cursor: pointer;
+.dark-mode header h1 {
+    color: #ffffff;
 }
 
-/* Hover effect */
-button.vegetarian:hover {
-    background-color: #218838; /* Darker green on hover */
+.dark-mode .recipe-card {
+    background-color: #1e1e1e;
+    border-color: #333;
 }
 
-button.non-vegetarian:hover {
-    background-color: #c82333; /* Darker red on hover */
+.dark-mode input[type="text"], .dark-mode select, .dark-mode button {
+    background-color: #333;
+    color: #fff;
+    border: 1px solid #555;
 }
 
-/* When hovering over vegetarian button, make non-vegetarian green */
-button.vegetarian:hover ~ button.non-vegetarian {
-    background-color: #28a745; /* Make non-veg button green */
-}
-
-/* When hovering over non-vegetarian button, make vegetarian red */
-button.non-vegetarian:hover ~ button.vegetarian {
-    background-color: #dc3545; /* Make veg button red */
-}
-
-/* Modal styles */
-.modal {
-    display: none; /* Hidden by default */
-    position: fixed; /* Stay in place */
-    z-index: 1; /* Sit on top */
-    left: 0;
-    top: 0;
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
-    overflow: auto; /* Enable scroll if needed */
-    background-color: rgb(0,0,0); /* Fallback color */
-    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-}
-
-.modal-content {
-    background-color: #fefefe;
-    margin: 15% auto; /* 15% from the top and centered */
-    padding: 20px;
-    border: 1px solid #888;
-    width: 80%; /* Could be more or less, depending on screen size */
-    text-align: center;
-}
-
-.modal-image {
-    max-width: 300px; /* Adjust as needed */
-    height: auto;
-    display: block;
-    margin: 0 auto; /* Center image */
-}
-
-/* Styles for the close button */
-#closeBtn {
-    background-color: #dc3545; /* Red color */
-    color: white;
+#darkModeToggle {
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
     border: none;
     border-radius: 5px;
-    padding: 10px 15px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    margin-left: 10px;
 }
 
-#closeBtn:hover {
-    background-color: #c82333; /* Darker red on hover */
+#darkModeToggle:hover {
+    background-color: #444;
 }
 
-/* Recipe card styles */
+/* Adjusted grid to ensure 5 cards fill the entire width */
 .recipe-container {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    gap: 20px;
+    grid-template-columns: repeat(5, 1fr); /* Ensure 5 cards in a row */
+    gap: 10px; /* Reduced gap between cards */
     margin-top: 20px;
 }
 
@@ -154,79 +105,97 @@ button.non-vegetarian:hover ~ button.vegetarian {
     border-radius: 5px;
     padding: 15px;
     text-align: center;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Soft shadow effect */
-    transition: transform 0.2s; /* Smooth transition */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1); 
+    transition: transform 0.2s;
 }
 
 .recipe-card:hover {
-    transform: scale(1.03); /* Slight scale effect on hover */
+    transform: scale(1.03);
 }
 
 .recipe-card img {
-    max-width: 100%;
+    width: 100%; /* Fill the card with the image */
     height: auto;
     border-radius: 5px;
-    transition: transform 0.3s ease; /* Smooth transition for image */
+    transition: transform 0.3s ease;
 }
 
 .recipe-card img:hover {
-    transform: scale(1.1); /* Slight zoom effect */
+    transform: scale(1.1);
 }
 
-.recipe-card p {
-    margin: 5px 0;
+.recipe-card h3 {
+    font-size: 18px;
+    margin: 10px 0;
 }
 
-/* Loading spinner styles */
-.loader {
-    border: 8px solid #f3f3f3; /* Light grey */
-    border-top: 8px solid #28a745; /* Green */
-    border-radius: 50%;
-    width: 40px;
-    height: 40px;
-    animation: spin 1s linear infinite; /* Spinning animation */
-    margin: 20px auto; /* Centered */
+/* Modal styles */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.4);
 }
 
-/* Keyframes for spinner */
-@keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    text-align: center;
 }
 
-/* Modal fade-in effect */
-.modal.show {
-    display: block; /* Show modal */
-    opacity: 0; /* Start invisible */
-    transition: opacity 0.5s ease; /* Smooth fade */
-}
-.modal.show-active {
-    opacity: 1; /* Fade in */
+.modal-image {
+    max-width: 300px;
+    height: auto;
+    display: block;
+    margin: 0 auto;
 }
 
-/* Call to action button styles */
-.show-recipe-btn {
-    background-color: #007bff; /* Blue color for action button */
-    font-weight: bold; /* Make button text bold */
+#closeBtn {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 15px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#closeBtn:hover {
+    background-color: #c82333;
 }
 
 /* Responsive adjustments */
-@media (max-width: 600px) {
+@media (max-width: 1200px) {
     .recipe-container {
-        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); /* More responsive card layout */
-    }
-
-    h1 {
-        font-size: 28px; /* Adjust header size for smaller screens */
-    }
-
-    input[type="text"] {
-        width: 100%; /* Full width for smaller screens */
+        grid-template-columns: repeat(3, 1fr); /* 3 cards on smaller screens */
     }
 }
 
-/* Footer styles */
-footer {
-    font-size: 14px; /* Smaller font size for footer */
-    color: #666; /* Grey text for footer */
+@media (max-width: 800px) {
+    .recipe-container {
+        grid-template-columns: repeat(2, 1fr); /* 2 cards on smaller screens */
+    }
+}
+
+@media (max-width: 600px) {
+    .recipe-container {
+        grid-template-columns: 1fr; /* 1 card per row on small screens */
+    }
+
+    h1 {
+        font-size: 28px;
+    }
+
+    input[type="text"] {
+        width: 100%;
+    }
 }
