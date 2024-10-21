@@ -91,14 +91,10 @@ function showRecpsFn(recipes) {
         // Use fallback values if certain fields are undefined
         const title = recipe.strMeal || 'No Title Available';
         const imageUrl = recipe.strMealThumb || 'default-image-url.jpg';
-        const area = recipe.strArea || 'Unknown Area';
-        const category = recipe.strCategory || 'Unknown Category';
 
         c.innerHTML = `
             <h3>${title}</h3>
             <img src="${imageUrl}" alt="${title}">
-            <p>${area}</p>
-            <p>${category}</p>
             <button class="show-recipe-btn" data-id="${recipe.idMeal}">Show Recipe</button>
         `;
         rCont.appendChild(c);
@@ -129,10 +125,7 @@ function modalFn(recipeId) {
                 <h2>${title}</h2>
                 <h3>Category: ${category}</h3>
                 <h3>Area: ${area}</h3>
-                <img src="${rep.strMealThumb}" alt="${title}"> <!-- Added image here -->
-                <h3>Calories: N/A</h3>
-                <h3>Preparation Time: N/A</h3>
-                <h3>Cooking Time: N/A</h3>
+                <img src="${rep.strMealThumb}" alt="${title}" class="modal-image"> <!-- Smaller modal image -->
                 <h3>Instructions:</h3>
                 <p>${instructions}</p>
                 <button id="closeBtn">Close</button>
