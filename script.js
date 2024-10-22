@@ -125,15 +125,27 @@ function modalFn(recipeId) {
                 <h2>${title}</h2>
                 <h3>Category: ${category}</h3>
                 <h3>Area: ${area}</h3>
-                <img src="${rep.strMealThumb}" alt="${title}" class="modal-image"> <!-- Smaller modal image -->
+                <img src="${rep.strMealThumb}" alt="${title}" class="modal-image">
                 <h3>Instructions:</h3>
-                <p>${instructions}</p>
+                <p>${formatInstructionsAsList(instructions)}</p> <!-- Changed to an ordered list -->
                 <button id="closeBtn">Close</button>
             `;
             document.getElementById('recipeModal').style.display = 'block';
         })
         .catch(error => console.error('Error fetching recipe details:', error));
 }
+
+// Function to format instructions as a numbered list
+function formatInstructionsAsList(instructions) {
+    if (!instructions) return '<li>No instructions available.</li>';
+
+    // Split instructions by line breaks, filter out empty lines, and wrap in <li>
+    return instructions.split('\r\n')
+        .filter(instruction => instruction.trim() !== '')
+        .map(instruction => `<li>${instruction.trim()}</li>`) // Wrap each instruction in <li>
+        .join(''); // Join them into a single string
+}
+
 
 // Function to format instructions
 function formatFn(instructions) {
